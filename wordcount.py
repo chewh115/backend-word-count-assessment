@@ -49,6 +49,38 @@ import sys
 
 ###
 
+
+def print_words(filename):
+    """Returns dictionary of words & the amount of times they occur in file"""
+    with open(filename, 'r') as f:
+        text = f.read()
+        text = text.lower().split()
+        words_dict = {}
+        for word in text:
+            if word in words_dict:
+                words_dict[word] += 1
+            else:
+                words_dict[word] = 1
+    words_list = list(words_dict.items())
+    words_list.sort()
+    print(words_list)
+
+
+def print_top(filename):
+    """Returns dictionary of top 20 most occuring words in file"""
+    with open(filename, 'r') as f:
+        text = f.read()
+        text = text.lower().split()
+        words_dict = {}
+        for word in text:
+            if word in words_dict:
+                words_dict[word] += 1
+            else:
+                words_dict[word] = 1
+    words_list = list(words_dict.items())
+    words_list.sort(key=lambda x: x[1], reverse=True)
+    print(words_list[:20])
+
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
 
