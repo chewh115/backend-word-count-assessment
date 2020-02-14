@@ -78,8 +78,7 @@ def print_top(filename):
             else:
                 words_dict[word] = 1
     words_list = list(words_dict.items())
-    words_list.sort(key=lambda x: x[1])
-    words_list = words_list[::-1]
+    words_list.sort(key=lambda x: x[1], reverse=True)
     print(words_list[:20])
 
 # This basic command line argument parsing code is provided and
